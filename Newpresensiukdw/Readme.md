@@ -1,5 +1,4 @@
-# ClickSPP - Oodean System
-
-## 71180308 Yosafat Adi Christian Putra
-## 71180369 Imanuel David Pratista
-## 71180370 R. Michael Joedhitya Putra Wijaya
+# Newpresensiukdw
+## 71180296 Harta Apriliano
+## 71180299 Ferdinand Gozales
+## 71180300 Kevin Triantama
