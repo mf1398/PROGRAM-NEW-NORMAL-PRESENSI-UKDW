@@ -47,5 +47,5 @@ public class SecondaryController implements Initializable {
     public void logout(ActionEvent event) throws IOException {
        App.setRoot("login");
     }
-    
+   
 }

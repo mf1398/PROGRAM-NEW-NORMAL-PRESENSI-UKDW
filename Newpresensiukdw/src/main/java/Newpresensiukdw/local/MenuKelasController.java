@@ -5,11 +5,13 @@
  */
 package Newpresensiukdw.local;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -70,5 +72,7 @@ public class MenuKelasController implements Initializable {
         listM = getMatkul();
         daftarmatkul.setItems(listM);
     }
-    
+     public void kembali(ActionEvent event) throws IOException {
+       App.setRoot("secondary");
+    }
 }

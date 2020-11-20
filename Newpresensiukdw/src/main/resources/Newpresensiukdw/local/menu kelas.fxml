@@ -24,6 +24,7 @@
       </TableView>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
+            <Button mnemonicParsing="false" onAction="#kembali" text="Back" />
           <Button mnemonicParsing="false" text="Pilih" />
         </buttons>
       </ButtonBar>
