@@ -30,5 +30,7 @@ public class LaporanpresensiController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+    public void kembali(ActionEvent event) throws IOException {
+       App.setRoot("secondary");
+    }
 }
