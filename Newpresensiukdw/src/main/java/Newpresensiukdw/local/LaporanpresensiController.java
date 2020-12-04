@@ -32,6 +32,9 @@ public class LaporanpresensiController implements Initializable {
     public void cetakpdf(ActionEvent event) throws IOException {
         App.setRoot("CetakPDF");
     }
+    public void cetakgrafik(ActionEvent event) throws IOException {
+        App.setRoot("CetakGrafik");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
