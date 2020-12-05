@@ -12,6 +12,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +24,13 @@ import javafx.event.ActionEvent;
 //import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * FXML Controller class
@@ -48,6 +56,8 @@ public class CetakPDFController implements Initializable {
     private TableColumn<Lpresensi, String> group;
     @FXML
     private TableColumn<Lpresensi, String> waktu;
+    @FXML
+    private TextField text_namakelas;
     
     ObservableList<Lpresensi> listM;
     public String namakelas;
@@ -112,8 +122,20 @@ public class CetakPDFController implements Initializable {
     
     @FXML
     private void cetakpdf(ActionEvent event) throws IOException {
-        App.setRoot("cetakPDF");
+        String bebas = "select * from presensi where = '"+text_namakelas.getText()+"' ";
+        try{
+            PreparedStatement bebasgan = con.prepareStatement(bebas);
+            
+            ResultSet rs = bebasgan.executeQuery();
+            String laporan = ("D:\\TUGAS UKDW\\RPL\\TUGAS AKHIR\\PROGRAM-NEW-NORMAL-PRESENSI-UKDW\\Newpresensiukdw\\Newpresensiukdw\\src\\main\\java\\Newpresensiukdw\\local\\Blank_A4.jrxml");
+            HashMap laporanpdf = new HashMap();
+            laporanpdf.put("bebaslaporan", text_namakelas.getText());
+            JasperReport bebaspdf = JasperCompileManager.compileReport(bebas);
+            JasperPrint bebasprint = JasperFillManager.fillReport(bebaspdf, laporanpdf, con);
+            JasperViewer.viewReport(bebasprint, false);
+        } catch(Exception e){}
     }
+    
 
     /**@FXML
    public void back(ActionEvent event) throws IOException {
