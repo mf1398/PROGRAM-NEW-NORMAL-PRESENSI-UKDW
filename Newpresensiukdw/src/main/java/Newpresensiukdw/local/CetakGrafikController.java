@@ -5,8 +5,12 @@
  */
 package Newpresensiukdw.local;
 
+import Newpresensiukdw.local.App;
+import static Newpresensiukdw.local.LoginController.con;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -14,29 +18,38 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.event.ActionEvent;
+//import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import static Newpresensiukdw.local.LoginController.con;
+
 /**
  * FXML Controller class
  *
- * @author PPLK
+ * @author Acer
  */
-public class MenuKelasController implements Initializable {
+public class CetakGrafikController implements Initializable {
 
-    @FXML
-    private TableView<daftarMatkul> daftarmatkul;
-    @FXML
-    private TableColumn<daftarMatkul, Integer> no;
-    @FXML
-    private TableColumn<daftarMatkul, String> matkul;
-    @FXML
-    private TableColumn<daftarMatkul, String> group;
-    @FXML
-    private TableColumn<daftarMatkul, String> waktu;
+    /**
+     * Initializes the controller class.
+     */
     
-    ObservableList<daftarMatkul> listM;
+   /**
+     * Initializes the controller class.
+     */
+     @FXML
+    private TableView<LGrafik> daftarmatkul;
+    @FXML
+    private TableColumn<LGrafik, Integer> no;
+    @FXML
+    private TableColumn<LGrafik, String> matkul;
+    @FXML
+    private TableColumn<LGrafik, String> group;
+    @FXML
+    private TableColumn<LGrafik, String> waktu;
+    
+    ObservableList<LGrafik> listM;
     public String namakelas;
     String url = "jdbc:sqlite:DB\\test - Copy.db";
     /**
@@ -49,14 +62,14 @@ public class MenuKelasController implements Initializable {
     }    
    
     
-    public ObservableList<daftarMatkul> getMatkul(){
-        ObservableList<daftarMatkul> list = FXCollections.observableArrayList();
+    public ObservableList<LGrafik> getMatkul(){
+        ObservableList<LGrafik> list = FXCollections.observableArrayList();
         try {
             //Connection c = DriverManager.getConnection(url);
             PreparedStatement ps = con.prepareStatement("select * from matkul");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){   
-                list.add(new daftarMatkul(Integer.parseInt(rs.getString("no")), rs.getString("matkul"), rs.getString("group"), rs.getString("waktu")));               
+                list.add(new LGrafik(Integer.parseInt(rs.getString("no")), rs.getString("matkul"), rs.getString("group"), rs.getString("waktu")));               
             }
         } catch (SQLException e) {
             
@@ -87,14 +100,24 @@ public class MenuKelasController implements Initializable {
     
     
     public void tampildataTabel(){
-        no.setCellValueFactory(new PropertyValueFactory<daftarMatkul, Integer>("no"));
-        matkul.setCellValueFactory(new PropertyValueFactory<daftarMatkul, String>("matkul"));
-        group.setCellValueFactory(new PropertyValueFactory<daftarMatkul, String>("group"));
-        waktu.setCellValueFactory(new PropertyValueFactory<daftarMatkul, String>("waktu"));
+        no.setCellValueFactory(new PropertyValueFactory<LGrafik, Integer>("no"));
+        matkul.setCellValueFactory(new PropertyValueFactory<LGrafik, String>("matkul"));
+        group.setCellValueFactory(new PropertyValueFactory<LGrafik, String>("group"));
+        waktu.setCellValueFactory(new PropertyValueFactory<LGrafik, String>("waktu"));
         listM = getMatkul();
         daftarmatkul.setItems(listM);
     }
     
+   
+    
+    @FXML
+    private void cetakpdf(ActionEvent event) throws IOException {
+        App.setRoot("cetakGrafik");
+    }
 
+    /**@FXML
+   public void back(ActionEvent event) throws IOException {
+        App.setRoot("secondary");
+    }*/
     
 }

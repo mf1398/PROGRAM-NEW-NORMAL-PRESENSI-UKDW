@@ -7,17 +7,16 @@ package Newpresensiukdw.local;
 
 /**
  *
- * @author PPLK
+ * @author ASUS
  */
-public class daftarMatkul {
-    
+public class LGrafik {
     public int no;
     public String matkul;
     public String group;
     public String waktu;
     
 
-    public daftarMatkul(int no, String matkul, String group, String waktu) {
+    public LGrafik(int no, String matkul, String group, String waktu) {
        this.no= no;
        this.matkul=matkul;
        this.group=group;
