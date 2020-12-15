@@ -39,6 +39,8 @@ public class TambahSiswaController implements Initializable {
     @FXML
     private TextField usernameField2;
     @FXML
+    private TextField usernameField4;
+    @FXML
     private Button submitButton;
     @FXML
     private Button submitButton1;
@@ -57,19 +59,21 @@ public class TambahSiswaController implements Initializable {
         App.setRoot("presensi");
     }
     public void tambah(ActionEvent event) throws IOException{
-        sql = "INSERT INTO 'presensi' (nim, nama, matkul, presensi) VALUES (?, ?, ?, 'Hadir')";
+        sql = "INSERT INTO 'presensi' (nim, nama, matkul, presensi, tanggal) VALUES (?, ?, ?, 'Hadir', ?)";
         String nim = usernameField1.getText();
         String nama = usernameField2.getText();
         String matkul = usernameField.getText();
+        String tanggal = usernameField4.getText();
         try{
                 
                 PreparedStatement ps = con.prepareStatement(sql); 
                 ps.setString(1, nim);
                 ps.setString(2, nama);
                 ps.setString(3, matkul);
-                System.out.println("play");
+                ps.setString(4, tanggal);
+                System.out.println("Menginputkan");
                 ps.executeUpdate();
-                System.out.println("sukses");
+                System.out.println("sukses gan");
                 ps.close();
             }catch( SQLException e ) {
            System.err.println( e.getClass().getName() + ": " + e.getMessage() );

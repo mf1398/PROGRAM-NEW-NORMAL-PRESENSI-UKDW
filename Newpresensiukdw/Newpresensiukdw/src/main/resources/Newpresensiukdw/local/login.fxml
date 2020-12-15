@@ -40,8 +40,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="228.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="228.0" promptText="Username" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordField" promptText="Password" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="69.0" text="Username" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />

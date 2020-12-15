@@ -21,11 +21,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 //import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -58,6 +60,9 @@ public class CetakPDFController implements Initializable {
     private TableColumn<Lpresensi, String> waktu;
     @FXML
     private TextField text_namakelas;
+    @FXML
+    private Button btn_cetak;
+    
     
     ObservableList<Lpresensi> listM;
     public String namakelas;
@@ -123,19 +128,19 @@ public class CetakPDFController implements Initializable {
    
     
     @FXML
-    private void cetakpdf(ActionEvent event) throws IOException {
-        String bebaslaporan = "select * from presensi where matkul LIKE '"+text_namakelas.getText()+"%' ";
+    public void cetakpdf(ActionEvent event) throws JRException, SQLException {
+        String bebaslaporan = "select * from presensi where matkul = '"+text_namakelas.getText()+"' ";
         try{
             PreparedStatement bebasgan = con.prepareStatement(bebaslaporan);
             
             ResultSet rs = bebasgan.executeQuery();
-            String laporan = ("D:\\Newpresensiukdw\\src\\main\\java\\Newpresensiukdw\\local\\Blank_A4.jrxml");
+            String laporan = ("F:\\Newpresensiukdw\\Newpresensiukdw\\Blank_A4.jrxml");
             HashMap laporanpdf = new HashMap();
             laporanpdf.put("bebaslaporan", text_namakelas.getText());
-            JasperReport bebaspdf = JasperCompileManager.compileReport(bebaslaporan);
+            JasperReport bebaspdf = JasperCompileManager.compileReport(laporan);
             JasperPrint bebasprint = JasperFillManager.fillReport(bebaspdf, laporanpdf, con);
             JasperViewer.viewReport(bebasprint, false);
-        } catch(Exception e){
+        } catch(JRException e){
         System.out.println(e.getMessage());
         }
     }

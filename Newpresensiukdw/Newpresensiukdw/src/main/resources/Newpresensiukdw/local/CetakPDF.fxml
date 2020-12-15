@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Newpresensiukdw.local.CetakPDFController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Newpresensiukdw.local.CetakPDFController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00BFFF;">
          <children>
@@ -18,7 +18,7 @@
                </font>
             </Label>
             <Label layoutX="41.0" layoutY="94.0" text="TENTUKAN TANGGAL DAN MATKUL" />
-            <Button layoutX="486.0" layoutY="103.0" mnemonicParsing="false" onAction="#cetakpdf" text="Print Pdf" />
+            <Button fx:id="btn_cetak" layoutX="486.0" layoutY="103.0" mnemonicParsing="false" onAction="#cetakpdf" text="Print Pdf" />
             <Button layoutX="417.0" layoutY="103.0" mnemonicParsing="false" onAction="#back" text="Back" />
             <TableView fx:id="daftarmatkul" layoutX="38.0" layoutY="177.0" prefHeight="200.0" prefWidth="489.0">
               <columns>

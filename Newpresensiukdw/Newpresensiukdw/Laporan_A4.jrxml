@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Laporan_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6c3569e-3c2d-4e7f-a5da-e67eff448236">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="laporan" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from presensi where matkul = $P{laporan}]]>
+	</queryString>
+	<field name="id" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="foto" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="foto"/>
+		<property name="com.jaspersoft.studio.field.label" value="foto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="nim" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="nim"/>
+		<property name="com.jaspersoft.studio.field.label" value="nim"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="nama" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="presensi" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="presensi"/>
+		<property name="com.jaspersoft.studio.field.label" value="presensi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="tanggal" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<field name="matkul" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="matkul"/>
+		<property name="com.jaspersoft.studio.field.label" value="matkul"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="presensi"/>
+	</field>
+	<group name="id">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+	</group>
+	<group name="foto">
+		<groupExpression><![CDATA[$F{foto}]]></groupExpression>
+	</group>
+	<group name="nim">
+		<groupExpression><![CDATA[$F{nim}]]></groupExpression>
+	</group>
+	<group name="nama">
+		<groupExpression><![CDATA[$F{nama}]]></groupExpression>
+	</group>
+	<group name="presensi">
+		<groupExpression><![CDATA[$F{presensi}]]></groupExpression>
+	</group>
+	<group name="tanggal">
+		<groupExpression><![CDATA[$F{tanggal}]]></groupExpression>
+	</group>
+	<group name="matkul">
+		<groupExpression><![CDATA[$F{matkul}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="160" y="30" width="270" height="50" uuid="7d6280cf-e85f-4437-a556-044b9e66668e"/>
+				<textElement>
+					<font fontName="Arial Black" size="22"/>
+				</textElement>
+				<text><![CDATA[Newpresensiukdw]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="10" width="100" height="30" uuid="9a6201f1-ebf2-4829-b441-0e5f496e461e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb843535-2377-4610-b6b8-4f9e62d589cc"/>
+				</reportElement>
+				<text><![CDATA[tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="10" width="100" height="30" uuid="00f25e70-d2d3-4729-a4c8-b78b39844390">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3a0ef6f-9f60-43f9-a6e5-d626f19ed66e"/>
+				</reportElement>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="10" width="100" height="30" uuid="127e8247-d044-4570-9b80-d568a076f33e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd72b1ef-fbe7-41cb-977e-6c8ee253bd69"/>
+				</reportElement>
+				<text><![CDATA[presensi]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="60" width="100" height="30" uuid="26a79628-0039-4303-bbb7-ed1b64e3b387">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eb843535-2377-4610-b6b8-4f9e62d589cc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="60" width="100" height="30" uuid="91c13790-c2b7-4da0-ad01-841dfef08bd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3a0ef6f-9f60-43f9-a6e5-d626f19ed66e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="60" width="100" height="30" uuid="024d57d6-8e64-4851-80fb-ced03e3f6a33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd72b1ef-fbe7-41cb-977e-6c8ee253bd69"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{presensi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
