@@ -50,6 +50,8 @@ public class PresensiController implements Initializable {
     @FXML
     private Button present;
     @FXML
+    private Button hapusmahasiswa;
+    @FXML
     private TableView<presensi> presensi;
     
     
@@ -119,6 +121,23 @@ public class PresensiController implements Initializable {
     public void present(){
         String sql = "UPDATE 'presensi' SET "
                 + "presensi = 'Hadir'"
+                + "WHERE id=(SELECT id from 'presensi' WHERE matkul = ? ORDER BY id LIMIT ?,1)";
+        int x = presensi.getSelectionModel().getSelectedIndex();
+        try (
+              //Connection c = DriverManager.getConnection(url);
+              PreparedStatement ps = con.prepareStatement(sql)) {
+              ps.setString(1, namamatkul);
+              ps.setInt(2, x);
+              ps.executeUpdate();
+              ps.close();
+        }catch( SQLException e ) {
+           System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        }
+       tampildataTabel();
+    }
+    
+    public void hapusmahasiswa(){
+        String sql = "DELETE FROM 'presensi' "
                 + "WHERE id=(SELECT id from 'presensi' WHERE matkul = ? ORDER BY id LIMIT ?,1)";
         int x = presensi.getSelectionModel().getSelectedIndex();
         try (

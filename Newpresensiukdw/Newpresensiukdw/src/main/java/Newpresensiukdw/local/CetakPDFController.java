@@ -134,7 +134,8 @@ public class CetakPDFController implements Initializable {
             PreparedStatement bebasgan = con.prepareStatement(bebaslaporan);
             
             ResultSet rs = bebasgan.executeQuery();
-            String laporan = ("F:\\Newpresensiukdw\\Newpresensiukdw\\Blank_A4.jrxml");
+            //letak Blank_A4.jrxml nya di sesuaikan + sudah instal jasper untuk cetak laporan//
+            String laporan = ("C:\\Users\\user\\Documents\\New folder\\Newpresensiukdw\\Newpresensiukdw\\Newpresensiukdw\\Blank_A4.jrxml");
             HashMap laporanpdf = new HashMap();
             laporanpdf.put("bebaslaporan", text_namakelas.getText());
             JasperReport bebaspdf = JasperCompileManager.compileReport(laporan);
